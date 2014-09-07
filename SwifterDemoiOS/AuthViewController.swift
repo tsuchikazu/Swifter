@@ -63,9 +63,12 @@ class AuthViewController: UIViewController {
                         self.alertWithTitle("Error", message: "There are no Twitter accounts configured. You can add or create a Twitter account in Settings.")
                     }
                     else {
-                        let twitterAccount = twitterAccounts[0] as ACAccount
-                        self.swifter = Swifter(account: twitterAccount)
-                        self.fetchTwitterHomeStream()
+                        let tweetsViewController = self.storyboard!.instantiateViewControllerWithIdentifier("FriendListViewController") as FriendListViewController
+                        self.presentViewController(tweetsViewController, animated: true, completion: nil)
+
+//                        let twitterAccount = twitterAccounts[0] as ACAccount
+//                        self.swifter = Swifter(account: twitterAccount)
+//                        self.fetchTwitterHomeStream()
                     }
                 }
                 else {
